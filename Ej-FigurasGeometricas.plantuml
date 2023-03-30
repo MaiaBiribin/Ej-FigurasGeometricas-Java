@@ -1,0 +1,71 @@
+@startuml ejercicio1
+
+
+title Figuras Geometricas
+
+note top of FiguraGeometrica: Clase Base
+
+abstract class FiguraGeometrica {
+
+    - nombre
+    - color 
+
+    + getNombre() : String
+    + setNombre(String) : Void
+    + getColor() : String
+    + setColor(String) : Void
+
+    + abstract calcularPerimetro() : Double
+    + abstract calcularArea() : Double
+ }
+
+ rectangle "Clases derivadas" #pink {
+
+    class Cuadrado {
+
+        - lado : Float
+        
+        + getLado() : Float
+        + setLado(Float) : void
+
+        + calcularPerimetro() : Double
+        + calcularArea () : Double
+    }
+
+    class Triangulo {
+
+        - lado1 : Float
+        - lado2 : Float
+        - lado3 : Float
+
+        + getLado1() : Float
+        + getLado2() : Float
+        + getLado3() : Float
+
+        + setLados (float, float, float) : void
+
+        + calcularArea() : Double
+        + calcularPerimetro() : Double
+ 
+    }
+
+    class Circulo {
+
+        - radio : Float
+
+        + getRadio() : Float
+        + setRadio(Float) : void
+
+        + calcularArea() : Double
+        + calcularPerimetro() : Double
+
+        
+    }
+
+ }
+
+    FiguraGeometrica <|-- Cuadrado : cuadrado es una Figura Geometrica
+    FiguraGeometrica <|-- Triangulo
+    FiguraGeometrica <|-- Circulo
+
+@enduml
